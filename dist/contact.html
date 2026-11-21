@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Neem contact op met Appsive.">
+<title>Contact — Appsive</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><nav class="wrap" aria-label="Hoofdnavigatie"><a class="logo" href="./" aria-label="Appsive home">appsive<span>®</span></a><div class="links"><a href="apps">Apps</a><a href="diensten">Diensten</a><a href="over">Over</a><a href="contact" class="pill" aria-current="page">Contact <span>↗</span></a></div></nav></header>
+<main>
+<section class="wrap section page-top"><div class="contact"><div><div class="eyebrow">Jouw volgende stap</div><h1 style="font-size:clamp(36px,4vw,56px);margin:18px 0 0;letter-spacing:-2px;font-weight:500">Wat wil jij<br>in beweging zetten?</h1><p>Groot plan of eerste gedachte? Zet je idee alvast op papier.</p><p class="note">Dit is een conceptwebsite. Het formulier maakt een lokaal tekstbestand; je bericht wordt nog niet naar Appsive verstuurd.</p></div><form id="idea-form"><label for="name">Je naam</label><input id="name" name="name" autocomplete="name" placeholder="Hoe mogen we je noemen?" required maxlength="120"><label for="email">Je e-mailadres</label><input id="email" name="email" type="email" autocomplete="email" placeholder="jij@voorbeeld.nl" required maxlength="254"><label for="idea">Je idee</label><textarea id="idea" name="idea" placeholder="Ik wil graag…" required maxlength="5000"></textarea><button class="pill" type="submit">Bewaar mijn idee <span>↓</span></button><p id="status" class="status" role="status"></p></form></div></section>
+</main>
+<footer class="wrap"><a class="logo" href="./">appsive<span>®</span></a><span>Ideeën die verder gaan.</span><span class="concept">Eerste ontwerp · conceptinhoud</span></footer>
+<script>
+document.getElementById('idea-form').addEventListener('submit',function(event){event.preventDefault();const data=new FormData(this);const content='Idee voor Appsive\n\nNaam: '+data.get('name')+'\nE-mail: '+data.get('email')+'\n\n'+data.get('idea');const url=URL.createObjectURL(new Blob([content],{type:'text/plain;charset=utf-8'}));const link=document.createElement('a');link.href=url;link.download='mijn-appsive-idee.txt';document.body.appendChild(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);document.getElementById('status').textContent='Je idee is als tekstbestand klaargezet. Er is niets verstuurd.'});
+</script>
+</body></html>
